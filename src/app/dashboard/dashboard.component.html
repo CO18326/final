@@ -1,0 +1,128 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Record Managment</h2>
+        <div class="d-flex">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Record</button>
+        </div>
+    </div>
+</nav>
+<!--Jumbotron-->
+
+<div class="p-5 mb-5 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Record Managment</h1>
+        <p class="col-md-8 fs-4">Saving Records</p>
+        <a class="btn btn-lg btn-primary" target="blank" type="button" href="https://www.linkedin.com/in/ishugambhir">Ishan</a>
+    </div>
+</div>
+
+
+
+<!-- Table Shown-->
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of table_data">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.mob}}</td>
+            <td>{{data.address}}</td>
+            <td>
+                <button class="btn btn-info" (click)='setEditValue(data)' data-bs-toggle="modal" data-bs-target="#editModal">Edit</button> &nbsp;
+                <button class="btn btn-danger" (click)="deleteData(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Record</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]='formValue'>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email</label>
+                  <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="mob" class="form-label">Mobile</label>
+                    <input type="tel" formControlName="mob" class="form-control" id="mob">
+                  </div>
+                <div class="mb-3">
+                    <label for="add" class="form-label">Address</label>
+                    <input type="text" formControlName="address" class="form-control" id="add">
+                </div>
+               
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addData()">Add Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Edit Modal-->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]='formValue'>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email</label>
+                  <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="mob" class="form-label">Mobile</label>
+                    <input type="tel" formControlName="mob" class="form-control" id="mob">
+                  </div>
+                <div class="mb-3">
+                    <label for="add" class="form-label">Address</label>
+                    <input type="text" formControlName="address" class="form-control" id="add">
+                </div>
+               
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateData()">Edit Details</button>
+        </div>
+      </div>
+    </div>
+  </div>

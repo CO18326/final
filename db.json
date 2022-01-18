@@ -1,0 +1,18 @@
+{
+  "posts": [
+    
+  ],
+  "users": [
+    
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
